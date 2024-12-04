@@ -1,0 +1,45 @@
+// Listas de alunos e disciplinas
+        ArrayList<Aluno> alunos = new ArrayList<>();
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
+
+        // Dados do aluno
+        int matricula = 123456;
+        String nome = "Kauan Passos";
+        int telefone = 999327259;
+        String email = "test@gmail.com";
+        String nascimento = "15/11/2005";
+
+        // Criando disciplinas
+        Disciplina disciplina1 = new Disciplina("Matemática", 1, new double[]{9.0, 8.5}, 95);
+        disciplinas.add(disciplina1);
+        Disciplina disciplina2 = new Disciplina("Português", 1, new double[]{9.0, 8.5}, 95);
+        disciplinas.add(disciplina2);
+
+        // Criando o aluno com a lista de disciplinas
+        Aluno aluno1 = new Aluno(matricula, nome, telefone, email, nascimento, disciplinas);
+        alunos.add(aluno1);
+
+        // Alterando o nome do aluno
+        Aluno alterandAluno = alunos.get(0);
+        alterandAluno.setNome("Joaozinho 123");
+
+        // Exibindo os alunos e suas disciplinas
+        for (Aluno aluno : alunos) {
+            System.out.println("Nome do Aluno: " + aluno.getNome());
+            
+            // Obtém a lista de disciplinas do aluno
+            ArrayList<Disciplina> disciplinasAluno = aluno.getDisciplinas();
+            
+            // Verifica se o aluno tem disciplinas
+            if (disciplinasAluno != null && !disciplinasAluno.isEmpty()) {
+                for (Disciplina disciplina : disciplinasAluno) {
+                    System.out.println("  Disciplina: " + disciplina.getNomeDisciplina());
+                    // Se quiser imprimir outras informações da disciplina
+                    System.out.println("    Período: " + disciplina.getPeriodo());
+                    System.out.println("    Médias: " + Arrays.toString(disciplina.getMedias()));
+                    System.out.println("    Frequência: " + disciplina.getFrequencia());
+                }
+            } else {
+                System.out.println("  Nenhuma disciplina cadastrada.");
+            }
+        }
