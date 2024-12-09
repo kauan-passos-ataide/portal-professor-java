@@ -9,12 +9,6 @@ class Disciplina {
 
     // Construtor
     public Disciplina(String nomeDisciplina, int periodo, double[] medias, double frequencia) {
-        if (medias.length > 2) {
-            throw new IllegalArgumentException("O array 'medias' deve conter no máximo 2 elementos.");
-        }
-        if (frequencia < 0 || frequencia > 100) {
-            throw new IllegalArgumentException("A frequência deve estar entre 0% e o 100%.");
-        }
         this.nomeDisciplina = nomeDisciplina;
         this.periodo = periodo;
         this.medias = medias;
